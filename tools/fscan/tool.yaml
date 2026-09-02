@@ -1,0 +1,8 @@
+id: fscan
+official_upstream: shadow1ng/fscan
+build_strategy: pinned-source
+build_entry: .
+license_spdx: MIT
+redistribution: permitted-with-license
+targets: [linux/amd64, linux/arm64, darwin/amd64, darwin/arm64]
+argus_descriptor: fscan

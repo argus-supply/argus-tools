@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "goVersion", "tools"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "goVersion": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "tools": {"type": "array", "minItems": 7, "maxItems": 7}
+  }
+}

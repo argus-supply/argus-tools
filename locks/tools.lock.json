@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "goVersion": "1.26.0",
+  "tools": [
+    {"id":"nuclei","repository":"projectdiscovery/nuclei","tag":"v3.11.1","version":"3.11.1","commit":"a8c88feb4a1c8e961b7902534ce3af97e9d524a4","buildPath":"./cmd/nuclei","license":"MIT","licensePath":"LICENSE.md","redistributable":true,"smokeArgs":["-version"]},
+    {"id":"fscan","repository":"shadow1ng/fscan","tag":"v2.2.0","version":"2.2.0","commit":"bf036fd9b272a56d493796badcf0a269f0a83ec0","buildPath":".","license":"MIT","licensePath":"LICENSE","redistributable":true,"smokeArgs":["-h"]},
+    {"id":"subfinder","repository":"projectdiscovery/subfinder","tag":"v2.15.0","version":"2.15.0","commit":"74a4de720d615df0ca9a6635d873bb8bf711df4d","buildPath":"./cmd/subfinder","license":"MIT","licensePath":"LICENSE.md","redistributable":true,"smokeArgs":["-version"]},
+    {"id":"httpx","repository":"projectdiscovery/httpx","tag":"v1.10.0","version":"1.10.0","commit":"13037dd08b9715cfbd960a70ae1edfef6686a857","buildPath":"./cmd/httpx","license":"MIT","licensePath":"LICENSE.md","redistributable":true,"smokeArgs":["-version"]},
+    {"id":"katana","repository":"projectdiscovery/katana","tag":"v1.7.0","version":"1.7.0","commit":"17b0af27a79098a1634c915ca7fca51ed1171e41","buildPath":"./cmd/katana","license":"MIT","licensePath":"LICENSE.md","redistributable":true,"smokeArgs":["-version"]},
+    {"id":"ffuf","repository":"ffuf/ffuf","tag":"v2.2.1","version":"2.2.1","commit":"1571aa17535d8bfcf42258659a141df0b12efa51","buildPath":".","license":"MIT","licensePath":"LICENSE","redistributable":true,"smokeArgs":["-V"]},
+    {"id":"fofax","repository":"xiecat/fofax","tag":"v0.1.48","version":"0.1.48","commit":"407fc0324c44c68abc7ccaceeee2d5a60891c6e3","buildPath":"./cmd/fofax","license":"GPL-3.0-only","licensePath":"LICENSE","redistributable":true,"correspondingSource":true,"smokeArgs":["-v"]}
+  ]
+}

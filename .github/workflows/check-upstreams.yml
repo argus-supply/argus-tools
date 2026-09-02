@@ -1,0 +1,35 @@
+name: Check upstreams
+
+on:
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  discover:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Compare pinned and newest releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 scripts/validate.py
+          report="$(mktemp)"
+          python3 - "$report" <<'PY'
+          import json, subprocess, sys
+          lock=json.load(open('locks/tools.lock.json'))
+          lines=[]
+          for item in lock['tools']:
+              latest=subprocess.run(['gh','api',f"repos/{item['repository']}/releases/latest",'--jq','.tag_name'],text=True,capture_output=True)
+              if latest.returncode == 0 and latest.stdout.strip() != item['tag']:
+                  lines.append(f"- {item['id']}: `{item['tag']}` → `{latest.stdout.strip()}`")
+          open(sys.argv[1],'w').write('\n'.join(lines))
+          PY
+          if [[ -s "$report" ]]; then
+            gh issue create --title "Upstream tool candidates $(date -u +%F)" --body-file "$report"
+          fi

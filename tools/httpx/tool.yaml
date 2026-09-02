@@ -1,0 +1,8 @@
+id: httpx
+official_upstream: projectdiscovery/httpx
+build_strategy: pinned-source
+build_entry: ./cmd/httpx
+license_spdx: MIT
+redistribution: permitted-with-license
+targets: [linux/amd64, linux/arm64, darwin/amd64, darwin/arm64]
+argus_descriptor: httpx
