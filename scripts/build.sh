@@ -34,7 +34,7 @@ mkdir -p "$stage/bin" "$stage/licenses" "$output_dir"
 
 mapfile -t rows < <(python3 - "$repo_dir/locks/tools.lock.json" <<'PY'
 import json, sys
-for item in json.load(open(sys.argv[1]))["tools"]:
+for item in sorted(json.load(open(sys.argv[1]))["tools"], key=lambda value: value["id"]):
     print("\t".join([item["id"], item["repository"], item["commit"], item["buildPath"], item["licensePath"], item["version"], "1" if item.get("correspondingSource") else "0"]))
 PY
 )
